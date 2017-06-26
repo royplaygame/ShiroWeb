@@ -11,11 +11,11 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthenticatingRealm;
 import org.apache.shiro.util.ByteSource;
 
-public class ShiroRealm extends AuthenticatingRealm {
+public class SecondRealm extends AuthenticatingRealm {
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-		System.out.println("[FirstRealm] doGetAuthenticationInfo");
+		System.out.println("[SecondRealm] doGetAuthenticationInfo");
 
 		// 1. 把 AuthenticationToken 转换为 UsernamePasswordToken
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
@@ -39,9 +39,9 @@ public class ShiroRealm extends AuthenticatingRealm {
 		// 2). credentials: 密码.
 		Object credentials = null; // "fc1709d0a95a6be30bc5926fdb7f22f4";
 		if ("admin".equals(username)) {
-			credentials = "038bdaf98f2037b31f1e75b5b4c9b26e";
+			credentials = "ce2f6417c7e1d32c1d81a797ee0b499f87c5de06";
 		} else if ("user".equals(username)) {
-			credentials = "098d2c478e9c11555ce2823231e02ec1";
+			credentials = "073d4c3ae812935f23cb3f2a71943f49e082a718";
 		}
 		// 3). realmName: 当前 realm 对象的 name. 调用父类的 getName() 方法即可
 		String realmName = getName();
@@ -52,14 +52,13 @@ public class ShiroRealm extends AuthenticatingRealm {
 												// SimpleAuthenticationInfo(principal,
 												// credentials, realmName);
 		info = new SimpleAuthenticationInfo(principal, credentials, credentialsSalt, realmName);
-
 		return info;
 	}
 
 	public static void main(String[] args) {
-		String hashAlgorithmName = "MD5";
+		String hashAlgorithmName = "SHA1";
 		Object credentials = "123456";
-		 Object salt = ByteSource.Util.bytes("user");
+		 Object salt = ByteSource.Util.bytes("admin");
 		//Object salt = null;
 		int hashIterations = 1024;
 
