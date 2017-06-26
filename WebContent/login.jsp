@@ -7,12 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h4>Login Page</h4>
-	<form action="shiroLogin" method="post">
-	用户名称：<input type="text" name="username"/> <br /><br />
-	用户密码：<input type="password" name="password"/><br /><br />
-	<input type="submit" value="登录"/>
-	</form>
-	
+	<center>
+		<div style="height: 250px"></div>
+		<h4>Login Page</h4>
+		<form action="shiro/login" method="post">
+			用户名称：<input type="text" name="username" /> <br /> <br /> 用户密码：<input
+				type="password" name="password" /><br /> <br /> <input
+				type="submit" value="登录" />
+		</form>
+	</center>
 </body>
 </html>
