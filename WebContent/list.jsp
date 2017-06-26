@@ -21,6 +21,9 @@
 		<a href="admin.jsp">Admin Page</a>
 	</shiro:hasRole>
 
+	<br />
+	<br />
+	<a href="shiro/testShiroAnnotation">Test ShiroAnnotation</a>
 
 	<shiro:hasRole name="user">
 		<br />
