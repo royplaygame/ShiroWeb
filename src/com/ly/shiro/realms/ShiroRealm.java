@@ -1,4 +1,4 @@
-package com.hy.ly.realms;
+package com.ly.shiro.realms;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
