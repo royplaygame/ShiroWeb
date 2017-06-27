@@ -1,5 +1,7 @@
 package com.ly.shiro.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -19,7 +21,8 @@ public class ShiroController {
 	private ShiroService shiroService;
 	
 	@RequestMapping("/testShiroAnnotation")
-	public String testShiroAnnotation(){
+	public String testShiroAnnotation(HttpSession session){
+		session.setAttribute("key", "value123456");
 		shiroService.testMethod();
 		return "redirect:/list.jsp";
 	}
