@@ -5,8 +5,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<!-- ========================================================= Shiro Core 
-		Components - Not Spring Specific ========================================================= -->
+	<!-- ========Shiro Core Components - Not Spring Specific ========== -->
 	<!-- Shiro's main business-tier object for web-enabled applications (use 
 		DefaultSecurityManager instead when there is no web environment) -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -18,6 +17,7 @@
 				<ref bean="secondRealm" />
 			</list>
 		</property>
+		<property name="rememberMeManager.cookie.maxAge" value="10"></property>
 	</bean>
 
 	<!-- Let's use some enterprise caching support for better performance. You 
@@ -112,5 +112,5 @@
     	class="com.ly.shiro.factory.FilterChainDefinitionMapBuilder"></bean>
     	
 	<bean id="shiroService" class="com.ly.shiro.services.ShiroService"></bean>
-
+	
 </beans>
